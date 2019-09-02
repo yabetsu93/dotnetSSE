@@ -11,7 +11,7 @@ namespace dotnetSSE.Models.SSEModel
 {
     public class SSEModel
     {
-        internal static readonly ConcurrentDictionary<string, List<StreamWriter>> MessagesMembers =
+        internal readonly ConcurrentDictionary<string, List<StreamWriter>> MessagesMembers =
             new ConcurrentDictionary<string, List<StreamWriter>>();
 
         public async Task ListenToMessagesModel(string id, Stream body, CancellationToken token)
