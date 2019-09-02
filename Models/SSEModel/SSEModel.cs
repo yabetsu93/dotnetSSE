@@ -14,7 +14,7 @@ namespace dotnetSSE.Models.SSEModel
         internal static readonly ConcurrentDictionary<string, List<StreamWriter>> MessagesMembers =
             new ConcurrentDictionary<string, List<StreamWriter>>();
 
-        public static async Task ListenToMessagesModel(string id, Stream body, CancellationToken token)
+        public async Task ListenToMessagesModel(string id, Stream body, CancellationToken token)
         {
             using (var message = new StreamWriter(body))
             {
@@ -40,7 +40,7 @@ namespace dotnetSSE.Models.SSEModel
         }
 
         // SendMessages 
-        public static async Task SendMessagesModel(string id, string message)
+        public async Task SendMessagesModel(string id, string message)
         {
             if (!MessagesMembers.TryGetValue(id, out var messages))
                 return;
